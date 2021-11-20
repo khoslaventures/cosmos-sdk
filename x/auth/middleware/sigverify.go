@@ -499,7 +499,7 @@ func (svd sigVerificationTxHandler) sigVerify(ctx context.Context, tx sdk.Tx, is
 					// and therefore communicate sequence number as a potential cause of error.
 					errMsg = fmt.Sprintf("signature verification failed; please verify account number (%d), sequence (%d) and chain-id (%s)", accNum, acc.GetSequence(), chainID)
 				} else {
-					errMsg = fmt.Sprintf("signature verification failed; please verify account number (%d) and chain-id (%s)", accNum, chainID)
+					errMsg = fmt.Sprintf("signature verification failed; please verify account number (%d) and chain-id (%s), address is (%s)", accNum, chainID, signerData.Address)
 				}
 				return sdkerrors.Wrap(sdkerrors.ErrUnauthorized, errMsg)
 
